@@ -1,47 +1,47 @@
 # Команды
 ## Режимы
 
-*mode* get
+***mode** get*
 
-*mode* set {full|safe}
+***mode** set* {full|safe}
 
 ## Движения
 
-*move* what where time
+***move*** {what} {where} {time}
 
-*go* {what} {where} {time} {notify}
+***go*** {what} {where} {time} {notify}
 	return move
 
-*commit* {notify}
+***commit*** {notify}
 
 ## Разное
 
-*hello*
+***hello***
 	hi
 
-*knock*
+***knock***
 	knock who's there
 
-*init_state*
+***init_state***
 	finished or current step
 
 ## Конфигурация
 
-*config* get {motor}
+***config** get* {motor}
 
-*config* set
+***config** set*
 
-*config* from_motors {offset}
+***config** from_motors* {offset}
 
-*config* fix
+***config** fix*
 	если на этапе инициализации конфигурация не прошла валидацию
 
-*save*
+***save***
 	запись конфигурации в хранилище
 
-*crc*
+***crc***
 	OBJECT_CRC(config));
-*break*
+***break***
 	break_storage_config()
 
 
