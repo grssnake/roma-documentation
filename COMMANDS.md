@@ -1,43 +1,53 @@
-mode get
+# РљРѕРјР°РЅРґС‹
+## Р РµР¶РёРјС‹
 
-mode set {full|safe}
+*mode* get
 
-move what where time
+*mode* set {full|safe}
 
-go {what} {where} {time} {notify}
+## Р”РІРёР¶РµРЅРёСЏ
+
+*move* what where time
+
+*go* {what} {where} {time} {notify}
 	return move
 
-commit {notify}
+*commit* {notify}
 
-hello
+## Р Р°Р·РЅРѕРµ
+
+*hello*
 	hi
 
-knock
+*knock*
 	knock who's there
 
-init_state
+*init_state*
 	finished or current step
 
-config get {motor}
+## РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ
 
-config set
+*config* get {motor}
 
-config from_motors {offset}
+*config* set
 
-config fix если на этапе инициализации конфигурация не прошла валидацию
+*config* from_motors {offset}
 
-save запись конфигурации в хранилище
+*config* fix
+	РµСЃР»Рё РЅР° СЌС‚Р°РїРµ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ РЅРµ РїСЂРѕС€Р»Р° РІР°Р»РёРґР°С†РёСЋ
 
-crc
+*save*
+	Р·Р°РїРёСЃСЊ РєРѕРЅС„РёРіСѓСЂР°С†РёРё РІ С…СЂР°РЅРёР»РёС‰Рµ
+
+*crc*
 	OBJECT_CRC(config));
-break
+*break*
 	break_storage_config()
 
 
+# РџР°СЂР°РјРµС‚СЂС‹ СЃРµСЂРІРѕРїСЂРёРІРѕРґРѕРІ
 
-
-
-start
+## Start
 	print("returning to start")
         self.move(1, 0, 2000)
         self.move(6, 0, 2000)
@@ -49,6 +59,7 @@ start
         self.wait_for_done(6)
         print("returning to start..done")
 
+## Sit down
     def sit_down(self, D, time=2000, block=True):
         """
         Should be done from standing position
