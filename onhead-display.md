@@ -1,9 +1,0 @@
-  # add this this to /config.txt at the sd card
-  # use:
-  #   cat onhead-display.md >> ${SD_PATH}config.txt
-  max_usb_current=1
-  hdmi_group=2
-  hdmi_mode=1
-  hdmi_mode=87
-  hdmi_cvt 800 480 60 6 0 0 0
-  hdmi_drive=1
