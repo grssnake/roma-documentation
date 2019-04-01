@@ -5,7 +5,11 @@ http://inotool.org/
 
 *Motion scripts*
 
-1. присед
-2. присед + руки
-3. присед + руки + наклон
-4. присед руки вперед
+1. РїСЂРёСЃРµРґ
+2. РїСЂРёСЃРµРґ + СЂСѓРєРё
+3. РїСЂРёСЃРµРґ + СЂСѓРєРё + РЅР°РєР»РѕРЅ
+4. РїСЂРёСЃРµРґ СЂСѓРєРё РІРїРµСЂРµРґ
+
+
+<a href="https://www.freepik.com/free-photos-vectors/character">Character vector created by freepik - www.freepik.com</a>
+
