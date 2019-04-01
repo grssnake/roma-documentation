@@ -1,9 +1,27 @@
 # add this this to /config.txt at the sd card
 # use:
 #   cat onhead-display.md >> ${SD_PATH}config.txt
+#   or
+#   sudo nano /boot/config.txt
+
+# Setup display 800x480
+
 max_usb_current=1
 hdmi_group=2
 hdmi_mode=1
 hdmi_mode=87
 hdmi_cvt 800 480 60 6 0 0 0
 hdmi_drive=1
+
+# Rotate the Raspberry Pi Display Output
+# 0 is the normal configuration.
+# 1 is 90 degrees.
+# 2 is 180 degress.
+# 3 is 270 degrees.
+# If you are using the Official Raspberry Pi touch screen
+# you can use “lcd_rotate” rather than “display_rotate”.
+
+#display_rotate=0
+display_rotate=1
+#display_rotate=2
+#display_rotate=3
