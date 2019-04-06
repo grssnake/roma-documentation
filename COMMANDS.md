@@ -26,7 +26,9 @@ NL (Новая строка)
 
 ***move*** {what} {where} {time} после этой команды обязательно использовать *commit*
 
-***commit*** {notify} 
+***commit*** {notify}
+
+***done***
 
 ## Разное
 
@@ -41,17 +43,20 @@ NL (Новая строка)
 
 ## Конфигурация
 
-***config** get* {motor}
-
-***config** set*
+***config** get* {motor} motor=id
+	id start offset reversed min max pin
 
 ***config** from_motors* {offset}
 
-***config** fix*
-	если на этапе инициализации конфигурация не прошла валидацию
+***config** set* motor {id} {key} {value} [1] после нужно выполнить save и fix
+		key := start | offset | reversed | min | max | pin
 
-***save***
+***config** save* [2]
 	запись конфигурации в хранилище
+
+
+***config** fix* [3]
+	если на этапе инициализации конфигурация не прошла валидацию
 
 ***crc***
 	OBJECT_CRC(config));
