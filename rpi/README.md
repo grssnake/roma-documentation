@@ -1,0 +1,3 @@
+http://wiki.amperka.ru/malina
+http://wiki.amperka.ru/rpi:installation#d0_bd_d0_b0_d1_81_d1_82_d1_80_d0_be_d0_b9_d0_ba_d0_b0_raspberry_pi_d0_b1_d0_b5_d0_b7_hdmi-_d0_bc_d0_be_d0_bd_d0_b8_d1_82_d0_be_d1_80_d0_b0
+
