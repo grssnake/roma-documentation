@@ -40,6 +40,8 @@ NL (Новая строка)
 
 ***init_state***
 	finished or current step
+	
+***start***
 
 ## Конфигурация
 
@@ -62,6 +64,14 @@ NL (Новая строка)
 	OBJECT_CRC(config));
 ***break***
 	break_storage_config()
+
+## Motor
+
+***motor** set* offset {id} {offset}
+
+***motor** get* {id}
+
+***zero_offset***  all | {id}
 
 
 # Параметры сервоприводов
