@@ -1,0 +1,20 @@
+#! bash
+## Install docker on Pi [docker.com/blog/happy-pi-day-docker-raspberry-pi/]
+
+#1. Install the following prerequisites.
+sudo apt-get install apt-transport-https ca-certificates software-properties-common -y
+#2. Download and install Docker.
+curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
+#3. Give the ‘pi’ user the ability to run Docker.
+sudo usermod -aG docker pi
+#4. Import Docker CPG key.
+sudo curl https://download.docker.com/linux/raspbian/gpg
+#5. Setup the Docker Repo.
+cat "deb https://download.docker.com/linux/raspbian/ stretch stable" >>/etc/apt/sources.list
+#6. Patch and update your Pi.
+sudo apt-get update && sudo apt-get upgrade
+#7. Start the Docker service.
+systemctl start docker.service
+#8. To verify that Docker is installed and running.
+docker info
+
