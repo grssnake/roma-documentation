@@ -111,6 +111,12 @@ git clone https://github.com/zamiron/ru4sphinx/ ru4sphinx
 nano raw_rus_dict
 ~/ru4sphinx/text2dict/dict2transcript.pl raw_rus_dict rus_pi_dict
 
+wget http://portaudio.com/archives/pa_stable_v190600_20161030.tgz
+tar -zxvf pa_stable_v190600_20161030.tgz
+cd pa_stable_v190600_20161030
+./configure && make
+sudo make install
+pip3 install pyaudio
 
 nano rus_pi.gram
 
