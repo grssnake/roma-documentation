@@ -113,7 +113,7 @@ nano raw_rus_dict
 
 wget http://portaudio.com/archives/pa_stable_v190600_20161030.tgz
 tar -zxvf pa_stable_v190600_20161030.tgz
-cd pa_stable_v190600_20161030
+cd portaudio
 ./configure && make
 sudo make install
 pip3 install pyaudio
