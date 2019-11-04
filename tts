@@ -1,3 +1,0 @@
-sudo apt-get install festival alsa-utils festvox-ru speech-tools
-
-echo "privet" >> gret && festival --language russian gret
