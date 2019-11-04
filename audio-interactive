@@ -1,0 +1,80 @@
+sudo apt-get update
+sudo apt-get upgrade
+
+# [https://raspberrypi.stackexchange.com/questions/80072/how-can-i-use-an-external-usb-sound-card-and-set-it-as-default]
+# root@SongOfWind:~# cat /proc/asound/cards
+#  0 [ALSA           ]: bcm2835_alsa - bcm2835 ALSA
+#                       bcm2835 ALSA
+#  1 [Device         ]: USB-Audio - USB Audio Device
+#                       GeneralPlus USB Audio Device at usb-3f980000.usb-1.5, full speed
+# 
+
+# common
+sudo apt-get install alsa-utils libasound2-dev
+sudo apt-get install python3-dev
+
+# уберем из системы pulseaudio (если установлен), чтобы не получить ошибки о недоступности микрофона
+sudo apt-get remove pulseaudio -y
+sudo aptitude purge pulseaudio -y
+sudo mv /usr/include/pulse/pulseaudio.h /usr/include/pulse/pulseaudio.h.old
+
+amixer -c 1 sset 'Mic' 100
+
+# tts
+sudo apt-get install festival festival-dev festvox-ru speech-tools
+
+echo "сейчас 20 40" | festival --tts --language russian
+# test with [https://raw.githubusercontent.com/grssnake/roma-onboard-apps/master/tts/kuku]
+
+# !!!??? pip3 install pyfestival
+
+# See [http://home-smart-home.ru/raspberry-pi-pocketsphinx-offlajn-raspoznavanie-rechi-i-upravlenie-golosom/]
+sudo apt-get install bison swig
+
+# [https://cmusphinx.github.io/wiki/raspberrypi/]
+# [http://home-smart-home.ru/raspberry-pi-pocketsphinx-offlajn-raspoznavanie-rechi-i-upravlenie-golosom/]
+# [https://habr.com/ru/post/351376/]
+# [https://habr.com/ru/post/267539/]
+# [https://habr.com/ru/post/167479/]
+# [http://uc.org.ru/node/70]
+
+mkdir sphinx
+cd sphinx
+wget https://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/sphinxbase-5prealpha.tar.gz/download -O sphinxbase.tar.gz
+wget https://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha/pocketsphinx-5prealpha.tar.gz/download -O pocketsphinx.tar.gz
+tar -xzvf sphinxbase.tar.gz
+tar -xzvf pocketsphinx.tar.gz
+cd sphinxbase-5prealpha
+./configure --enable-fixed
+make
+sudo make install
+cd ../pocketsphinx-5prealpha
+./configure
+make
+sudo make install
+export LD_LIBRARY_PATH=/usr/local/lib 
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+# Test out the installation
+pocketsphinx_continuous -inmic yes
+
+cd ../
+wget https://sourceforge.net/projects/cmusphinx/files/Acoustic%20and%20Language%20Models/Russian/cmusphinx-ru-5.2.tar.gz/download
+wget https://sourceforge.net/projects/cmusphinx/files/Acoustic%20and%20Language%20Models/Russian/zero_ru_cont_8k_v3.tar.gz/download
+tar -zxvf ./zero_ru_cont_8k_v3.tar.gz
+
+sudo apt-get install libpulse-dev
+pip3 install pocketsphinx
+
+git clone https://github.com/zamiron/ru4sphinx/ ru4sphinx
+nano raw_rus_dict
+~/ru4sphinx/text2dict/dict2transcript.pl raw_rus_dict rus_pi_dict
+
+
+nano rus_pi.gram
+
+#JSGF V1.0;
+grammar PI;
+public <cmd> = <name> <action> <obj>;
+<name> = [ Рома | Ромик | Ром ];
+<action> = ( погаси | включи | показывай);
+<obj> = ( лампу | розетку | отчет);
