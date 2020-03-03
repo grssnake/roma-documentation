@@ -1,9 +1,13 @@
 * [https://www.dexterindustries.com/howto/make-your-raspberry-pi-speak/]
 * [http://espeak.sourceforge.net/commands.html]
+* [https://geekbrains.ru/posts/tts_python]
+
 
 * aplay /usr/share/sounds/alsa/*
 * sudo apt-get install espeak python-espeak
 * sudo apt-get install espeak-ng
+* pip3 install py-espeak-ng pyttsx3
+
 * echo "export PA_ALSA_PLUGHW=1" >> ~/.bashrc
 * source ~/.bashrc
 * espeak -ven-us "Hello my name is roma" 2>/dev/null
@@ -28,8 +32,24 @@ wget http://espeak.sourceforge.net/data/ru_dict-48.zip
 unzip ru_dict-48.zip
 sudo mv ru_dict-48 /usr/lib/arm-linux-gnueabihf/espeak-data/ru_dict
 
+# set_voice_and_say.py
+import pyttsx3
+tts = pyttsx3.init()
+voices = tts.getProperty('voices')
+tts.setProperty('voice', 'ru') 
+tts.say('Привет! Меня зовут Рома. Я очень рад вас видеть!')
+tts.runAndWait()
 
-pi@RobotRoma:~/Documents/roma-documentation/tts $ sudo mkdir /usr/share/espeak-data
-pi@RobotRoma:~/Documents/roma-documentation/tts $ cd /usr/share/espeak-data
+from espeakng import ESpeakNG
+engine = ESpeakNG()
+engine.voice = 'english'
+engine.speed = 150 
+engine.say("I'd like to be under the sea. In an octopus's garden, in the shade!", sync=True)
+engine.speed = 100 
+engine.pitch = 32
+engine.voice = 'russian' 
+engine.say('Привет! Меня зовут Рома. Я очень рад вас видеть!', sync=True)
+
+sudo apt-get install speech-dispatcher
 
 
