@@ -1,6 +1,6 @@
 # roma-documentation
 https://robot-on.ru/articles/reaspberry-pi-5-inch-touchscreen
-
+https://robot-on.ru/articles/raspberry-pi-rabota-s-kameroi
 http://inotool.org/
 
 *Motion scripts*
