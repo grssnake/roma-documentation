@@ -1,0 +1,4 @@
+vcgencmd get_config int
+
+https://harlemsquirrel.github.io/shell/2019/01/05/monitoring-raspberry-pi-power-and-thermal-issues.html
+https://gist.github.com/geerlingguy/91d4736afe9321cbfc1062165188dda4 Raspberry Pi CPU temperature and throttling test script
