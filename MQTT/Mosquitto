@@ -1,0 +1,15 @@
+[https://robot-on.ru/articles/ystanovka-mqtt-brokera-mosquitto-raspberry-orange-pi]
+[http://onreader.mdl.ru/MQTTProgrammingWithPython/content/index.html] !!!
+
+sudo apt-get install mosquitto
+sudo apt-get install mosquitto-clients
+
+[screen0]$ mosquitto_sub -t speak -d
+[screen1]$ mosquitto_pub -t speak -m "Привет я рома"
+
+crontab -e
+
+*/1 * * * * vcgencmd measure_temp | egrep -o '[0-9]*\.[0-9]*' | mosquitto_pub -t temperature/gpu -l >/dev/null 2>&1
+*/1 * * * * temp_cpu=$(</sys/class/thermal/thermal_zone0/temp) && expr $temp_cpu / 1000 | mosquitto_pub -t temperature/cpu -l >/dev/null 2>&1
+
+https://pypi.org/project/paho-mqtt/
