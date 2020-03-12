@@ -3,17 +3,17 @@
 * [https://geekbrains.ru/posts/tts_python]
 
 
-* aplay /usr/share/sounds/alsa/*
-* sudo apt-get install espeak python-espeak
-* sudo apt-get install espeak-ng
-* pip3 install py-espeak-ng pyttsx3
+aplay /usr/share/sounds/alsa/*
+sudo apt-get install espeak python-espeak
+sudo apt-get install espeak-ng
+pip3 install py-espeak-ng pyttsx3
 
-* echo "export PA_ALSA_PLUGHW=1" >> ~/.bashrc
-* source ~/.bashrc
-* espeak -ven-us "Hello my name is roma" 2>/dev/null
-* espeak -v mb-en1 "Hello my name is roma" 2>/dev/null
-* espeak -vru "Привет меня зовут рома" 2>/dev/null
-* cat test.txt | espeak -vru 2>/dev/null
+echo "export PA_ALSA_PLUGHW=1" >> ~/.bashrc
+source ~/.bashrc
+espeak -ven-us "Hello my name is roma" 2>/dev/null
+espeak -v mb-en1 "Hello my name is roma" 2>/dev/null
+espeak -vru "Привет меня зовут рома" 2>/dev/null
+cat test.txt | espeak -vru 2>/dev/null
 
 cat test.txt | espeak -vru 2>/dev/null
 cat test.txt | espeak -vru+m1 2>/dev/null
